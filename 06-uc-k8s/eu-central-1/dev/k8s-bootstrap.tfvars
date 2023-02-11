@@ -1,0 +1,6 @@
+region_name       = "eu-central-1"
+organization_name = "msg"
+department_name   = "BrAM AT2"
+solution_name     = "cloudtrain"
+solution_stage    = "dev"
+solution_fqn      = "cloudtrain-dev"

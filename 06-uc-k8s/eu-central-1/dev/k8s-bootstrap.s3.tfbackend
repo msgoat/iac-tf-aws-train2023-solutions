@@ -1,0 +1,4 @@
+region         = "eu-central-1"
+bucket         = "s3-eu-central-1-cloudtrain-dev-train202302"
+dynamodb_table = "dyn-eu-central-1-cloudtrain-dev-train202302"
+key            = "train2023/uc-k8s/k8s-bootstrap/tfstate"

@@ -1,0 +1,11 @@
+region_name       = "eu-central-1"
+organization_name = "msg"
+department_name   = "BrAM AT2"
+solution_name     = "cloudtrain"
+solution_stage    = "dev"
+solution_fqn      = "cloudtrain-dev"
+network_name      = "train202302uck8s"
+network_cidr      = "10.31.0.0/16"
+inbound_traffic_cidrs = [ "0.0.0.0/0" ]
+nat_strategy = "NAT_GATEWAY_SINGLE"
+number_of_bastion_instances = 0

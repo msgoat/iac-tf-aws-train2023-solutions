@@ -1,0 +1,8 @@
+terraform {
+  backend "s3" {
+    region         = "eu-central-1"
+    bucket         = "s3-eu-central-1-cloudtrain-dev-train202302"
+    dynamodb_table = "dyn-eu-central-1-cloudtrain-dev-train202302"
+    key            = "train2023/tfstate"
+  }
+}

@@ -1,0 +1,8 @@
+region_name       = "eu-central-1"
+organization_name = "msg"
+department_name   = "BrAM AT2"
+solution_name     = "cloudtrain"
+solution_stage    = "dev"
+solution_fqn      = "cloudtrain-dev"
+network_name      = "train202302"
+network_cidr      = "10.17.0.0/16"
