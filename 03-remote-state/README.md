@@ -20,7 +20,7 @@ Change to folder `backend` and run the following terraform commands:
 
 ```shell
 terraform init 
-terraform apply -auto-approve -var-file ../common.tfvars
+terraform apply -auto-approve -var-file ../terraform.tfvars
 ```
 
 ### Step 2: Create the AWS solution 
@@ -45,5 +45,5 @@ terraform destroy -auto-approve
 Change to folder `backend` and run the following terraform commands:
 
 ```shell
-terraform destroy -auto-approve -var-file ../common.tfvars
+terraform destroy -auto-approve -var-file ../terraform.tfvars
 ```
