@@ -27,3 +27,8 @@ variable "solution_fqn" {
   description = "The fully qualified name of the project that owns all AWS resources."
   type        = string
 }
+
+variable eks_cluster_admin_role_names {
+  description = "IAM role names to be added as system:masters to aws_auth config map"
+  type = list(string)
+}

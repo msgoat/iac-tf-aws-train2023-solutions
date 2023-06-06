@@ -69,7 +69,20 @@ provider "helm" {
   }
 }
 
+module aws_auth {
+  #  source = "git::https://github.com/msgoat/iac-tf-aws-cloudtrain-modules.git//modules/container/eks/addon/aws_auth"
+  source = "../../../../iac-tf-aws-cloudtrain-modules/modules/container/eks/addon/rbac"
+  region_name = var.region_name
+  solution_fqn = var.solution_fqn
+  solution_name = var.solution_name
+  solution_stage = var.solution_stage
+  common_tags = local.main_common_tags
+  eks_cluster_name = data.terraform_remote_state.k8s_foundation.outputs.eks_cluster_name
+  eks_cluster_admin_role_names = var.eks_cluster_admin_role_names
+}
+
 module "metrics_server" {
+  #  source = "git::https://github.com/msgoat/iac-tf-aws-cloudtrain-modules.git//modules/container/eks/addon/metrics-server"
   source = "../../../../iac-tf-aws-cloudtrain-modules/modules/container/eks/addon/metrics-server"
   region_name = var.region_name
   solution_name = var.solution_name
@@ -77,3 +90,4 @@ module "metrics_server" {
   solution_stage = var.solution_stage
   common_tags = local.main_common_tags
 }
+

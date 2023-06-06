@@ -1,3 +1,3 @@
-# Live code section network 
+# Live code section k8s-foundation 
 
-Manages the network building block of all stages.
+Creates an AWS EKS cluster within a blueprint VPC.

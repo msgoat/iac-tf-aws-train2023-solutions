@@ -10,8 +10,10 @@ inbound_traffic_cidrs = [ "0.0.0.0/0" ]
 nat_strategy = "NAT_GATEWAY_SINGLE"
 kubernetes_version = "1.24"
 kubernetes_cluster_name = "train202302uck8s"
-node_groups = [
+zones_to_span = 3
+node_group_templates = [
   {
+    enabled = true
     name = "appsblue"
     kubernetes_version = ""
     min_size = 1
@@ -24,6 +26,20 @@ node_groups = [
     taints = []
   },
   {
+    enabled = false
+    name = "appsgreen"
+    kubernetes_version = ""
+    min_size = 1
+    max_size = 4
+    desired_size = 1
+    disk_size = 100
+    capacity_type = "SPOT"
+    instance_types = [ "t3a.xlarge" ]
+    labels = {}
+    taints = []
+  },
+  {
+    enabled = true
     name = "toolsblue"
     kubernetes_version = ""
     min_size = 1

@@ -15,6 +15,7 @@ locals {
 }
 
 module backend {
+#  source = "git::https://github.com/msgoat/iac-tf-aws-cloudtrain-modules.git//modules/terraform/remote-state"
   source = "../../../iac-tf-aws-cloudtrain-modules//modules/terraform/remote-state"
   region_name = var.region_name
   solution_name = var.solution_name

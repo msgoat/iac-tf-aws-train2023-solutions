@@ -27,6 +27,7 @@ locals {
 }
 
 module "network" {
+  #  source = "git::https://github.com/msgoat/iac-tf-aws-cloudtrain-modules.git//modules/network/vpc-blueprint"
   source = "../../../iac-tf-aws-cloudtrain-modules/modules/network/vpc-blueprint"
   region_name = var.region_name
   solution_name = var.solution_name
@@ -69,6 +70,7 @@ data "aws_ami" "amazon_linux2" {
 }
 
 module "web_server" {
+  #  source = "git::https://github.com/msgoat/iac-tf-aws-cloudtrain-modules.git//modules/compute/ec2-single"
   source = "../../../iac-tf-aws-cloudtrain-modules/modules/compute/ec2-single"
   region_name = var.region_name
   solution_name = var.solution_name
@@ -86,6 +88,7 @@ module "web_server" {
 }
 
 module "app_server" {
+  #  source = "git::https://github.com/msgoat/iac-tf-aws-cloudtrain-modules.git//modules/compute/ec2-single"
   source = "../../../iac-tf-aws-cloudtrain-modules/modules/compute/ec2-single"
   region_name = var.region_name
   solution_name = var.solution_name
@@ -103,6 +106,7 @@ module "app_server" {
 }
 
 module "postgres" {
+  #  source = "git::https://github.com/msgoat/iac-tf-aws-cloudtrain-modules.git//modules/database/postgresql/rds"
   source = "../../../iac-tf-aws-cloudtrain-modules/modules/database/postgresql/rds"
   region_name = var.region_name
   solution_name = var.solution_name

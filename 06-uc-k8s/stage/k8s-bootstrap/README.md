@@ -1,3 +1,3 @@
-# Live code section network 
+# Live code section k8s-bootstrap 
 
-Manages the network building block of all stages.
+Bootstraps an existing AWS EKS cluster.

@@ -46,7 +46,6 @@ variable "inbound_traffic_cidrs" {
 variable "zones_to_span" {
   description = "The number of availability zones the VPC is supposed to span. (default: 0 == all availability zones)"
   type        = number
-  default     = 0
 }
 
 variable "nat_strategy" {
@@ -70,21 +69,22 @@ variable kubernetes_api_access_cidrs {
   default = []
 }
 
-variable node_groups {
+variable "node_group_templates" {
   description = "Templates for node groups attached to the AWS EKS cluster, will be replicated for each spanned zone"
   type = list(object({
-    name = string # logical name of this nodegroup
-    kubernetes_version = string # Kubernetes version of the blue node group; will default to kubernetes_version, if not specified but may differ from kubernetes_version during cluster upgrades
-    min_size = number # minimum size of this node group
-    max_size = number # maximum size of this node group
-    desired_size = number # desired size of this node group; will default to min_size if set to 0
-    disk_size = number # size of attached EBS volume in GB
-    capacity_type = string # defines the purchasing option for the EC2 instances in all node groups
-    instance_types = list(string) # EC2 instance types which should be used for the AWS EKS worker node groups ordered descending by preference
-    labels = map(string) # Kubernetes labels to be attached to each worker node
+    enabled            = bool         # controls if this node group gets actually created
+    name               = string       # logical name of this nodegroup
+    kubernetes_version = string       # Kubernetes version of the blue node group; will default to kubernetes_version, if not specified but may differ from kubernetes_version during cluster upgrades
+    min_size           = number       # minimum size of this node group
+    max_size           = number       # maximum size of this node group
+    desired_size       = number       # desired size of this node group; will default to min_size if set to 0
+    disk_size          = number       # size of attached EBS volume in GB
+    capacity_type      = string       # defines the purchasing option for the EC2 instances in all node groups
+    instance_types     = list(string) # EC2 instance types which should be used for the AWS EKS worker node groups ordered descending by preference
+    labels             = map(string)  # Kubernetes labels to be attached to each worker node
     taints = list(object({
-      key = string
-      value = string
+      key    = string
+      value  = string
       effect = string
     })) # Kubernetes taints to be attached to each worker node
   }))
